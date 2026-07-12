@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_bg"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/left_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="Определение..." />
+
+            <TextClock
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format24Hour="HH:mm"
+                android:format12Hour="h:mm"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:shadowColor="#80000000" android:shadowRadius="5" />
+
+            <TextClock
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format24Hour="EE, d MMMM"
+                android:format12Hour="EE, d MMMM"
+                android:textColor="#CCFFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_partly" />
+
+                <TextView
+                    android:id="@+id/tv_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    android:shadowColor="#80000000" android:shadowRadius="5"
+                    android:text="--°" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#DDFFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_day0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#DDFFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="—" />
+            <ImageView
+                android:id="@+id/iv_day0"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:src="@drawable/ic_cloud" />
+            <TextView
+                android:id="@+id/tv_max0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="--°" />
+            <TextView
+                android:id="@+id/tv_min0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#99FFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="--°" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_day1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#DDFFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="—" />
+            <ImageView
+                android:id="@+id/iv_day1"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:src="@drawable/ic_cloud" />
+            <TextView
+                android:id="@+id/tv_max1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="--°" />
+            <TextView
+                android:id="@+id/tv_min1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#99FFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="--°" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_day2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#DDFFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="—" />
+            <ImageView
+                android:id="@+id/iv_day2"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:src="@drawable/ic_cloud" />
+            <TextView
+                android:id="@+id/tv_max2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="--°" />
+            <TextView
+                android:id="@+id/tv_min2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#99FFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="--°" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_day3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#DDFFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="—" />
+            <ImageView
+                android:id="@+id/iv_day3"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:src="@drawable/ic_cloud" />
+            <TextView
+                android:id="@+id/tv_max3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="--°" />
+            <TextView
+                android:id="@+id/tv_min3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#99FFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="--°" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_day4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#DDFFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="—" />
+            <ImageView
+                android:id="@+id/iv_day4"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:src="@drawable/ic_cloud" />
+            <TextView
+                android:id="@+id/tv_max4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="--°" />
+            <TextView
+                android:id="@+id/tv_min4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#99FFFFFF"
+                android:textSize="12sp"
+                android:shadowColor="#80000000" android:shadowRadius="4"
+                android:text="--°" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
