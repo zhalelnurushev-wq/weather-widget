@@ -37,17 +37,17 @@ jobs:
         run: gradle assembleDebug
 
       - name: Rename APK
-        run: cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/med-reminder-v1.0.apk
+        run: cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/med-reminder-v1.1.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: med-reminder-apk
-          path: medreminder/app/build/outputs/apk/debug/med-reminder-v1.0.apk
+          path: medreminder/app/build/outputs/apk/debug/med-reminder-v1.1.apk
 
       - name: Publish release with APK
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: med-v1.0
-          name: "Мои лекарства v1.0"
-          files: medreminder/app/build/outputs/apk/debug/med-reminder-v1.0.apk
+          tag_name: med-v1.1
+          name: "Мои лекарства v1.1"
+          files: medreminder/app/build/outputs/apk/debug/med-reminder-v1.1.apk

@@ -12,11 +12,26 @@ android {
         applicationId = "kz.zhalel.medreminder"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
     }
 
-    buildTypes { release { isMinifyEnabled = false } }
+    signingConfigs {
+        create("shared") {
+            storeFile = rootProject.file("keystore.jks")
+            storePassword = "zhalel2026"
+            keyAlias = "app"
+            keyPassword = "zhalel2026"
+        }
+    }
+
+    buildTypes {
+        debug { signingConfig = signingConfigs.getByName("shared") }
+        release {
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("shared")
+        }
+    }
     buildFeatures { compose = true }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

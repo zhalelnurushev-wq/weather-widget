@@ -16,9 +16,20 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        create("shared") {
+            storeFile = rootProject.file("keystore.jks")
+            storePassword = "zhalel2026"
+            keyAlias = "app"
+            keyPassword = "zhalel2026"
+        }
+    }
+
     buildTypes {
+        debug { signingConfig = signingConfigs.getByName("shared") }
         release {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("shared")
         }
     }
 

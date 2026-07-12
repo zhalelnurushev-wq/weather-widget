@@ -29,11 +29,23 @@ object Alarms {
     }
 
     fun reschedule(c: Context) {
-        val am = c.getSystemService(AlarmManager::class.java)
-        val pi = alarmPi(c)
-        am.cancel(pi)
-        val next = nextEventMillis(c) ?: return
-        am.setAlarmClock(AlarmManager.AlarmClockInfo(next, contentPi(c)), pi)
+        try {
+            val am = c.getSystemService(AlarmManager::class.java)
+            val pi = alarmPi(c)
+            am.cancel(pi)
+            val next = nextEventMillis(c) ?: return
+
+            val canExact = android.os.Build.VERSION.SDK_INT < 31 || am.canScheduleExactAlarms()
+            if (canExact) {
+                am.setAlarmClock(AlarmManager.AlarmClockInfo(next, contentPi(c)), pi)
+            } else {
+                // Разрешение на точные будильники отозвано — используем неточный
+                // (может сработать с задержкой до ~10 минут, но не уронит приложение)
+                am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next, pi)
+            }
+        } catch (_: Exception) {
+            // Ни при каких условиях планирование будильника не должно ронять приложение
+        }
     }
 
     private fun nextEventMillis(c: Context): Long? {
