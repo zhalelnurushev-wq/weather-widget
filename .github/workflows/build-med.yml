@@ -1,9 +1,9 @@
-name: Build APK
+name: Build MedReminder APK
 
 on:
   push:
-    branches: [ main, master ]
-    paths-ignore: [ 'medreminder/**' ]
+    branches: [ main ]
+    paths: [ 'medreminder/**', '.github/workflows/build-med.yml' ]
   workflow_dispatch:
 
 permissions:
@@ -12,6 +12,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: medreminder
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,15 +36,18 @@ jobs:
       - name: Build debug APK
         run: gradle assembleDebug
 
+      - name: Rename APK
+        run: cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/med-reminder-v1.0.apk
+
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: weather-widget-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: med-reminder-apk
+          path: medreminder/app/build/outputs/apk/debug/med-reminder-v1.0.apk
 
       - name: Publish release with APK
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0
-          name: "Погода — виджет v1.0"
-          files: app/build/outputs/apk/debug/app-debug.apk
+          tag_name: med-v1.0
+          name: "Мои лекарства v1.0"
+          files: medreminder/app/build/outputs/apk/debug/med-reminder-v1.0.apk
